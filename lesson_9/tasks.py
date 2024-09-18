@@ -28,9 +28,6 @@ def args_in_json(func: Callable):
         return result
     return wrapper
 
-
-@args_in_json
-@csv_decorate
 def find_roots(a, b, c):
     discriminant = b**2 - 4*a*c
     if discriminant >= 0 and a != 0:
@@ -46,6 +43,3 @@ def generate_csv(file_name):
         nums = [[randint(0, 100) for _ in range(3)] for _ in range(randint(100, 1000))]
         csv.writer(f, dialect='excel').writerows(nums)
 
-
-generate_csv('file.csv ')
-find_roots('file.csv')
